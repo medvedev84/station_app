@@ -9,6 +9,7 @@ class RegionsController < ApplicationController
 	@cities = @region.cities		
   end
   
+=begin  
   def get_stations    	
 	@region = Region.find(params[:region_id])	
 	@result = run_parse_process(@region)	
@@ -47,5 +48,5 @@ class RegionsController < ApplicationController
 		end		
 		return site_url
 	end
-	
+=end	
 end

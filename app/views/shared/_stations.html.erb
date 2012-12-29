@@ -1,0 +1,12 @@
+<table class="table table-striped">
+	<tr>
+	  <th>АЗС</th>
+	  <th>Адрес</th>
+	</tr>
+	<% stations.each do |station| %>
+		<tr>
+			<td><%= station.name %></td>
+			<td><%= station.region.name %>, <%= station.address %></td>
+		</tr>				
+	<% end %>
+</table>

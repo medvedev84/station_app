@@ -1,3 +1,23 @@
-<% @regions.each_with_index  do |region, index| %>	
-    <%= link_to region.name, region_path(region.id) %> <a href="/regions/get_stations?region_id=<%= region.id %>">Получить станции</a><br/>
-<% end %>
+<table width="100%" class="table">
+	<% @regions.each_with_index  do |region, index| %>
+		<% if ((index % 4) == 0) %>
+			<tr>
+				<td>
+					<%= link_to region.name, region_path(region.id) %>
+				</td>								
+		<% elsif ((index % 4) == 1) %>
+				<td>
+					<%= link_to region.name, region_path(region.id) %>	
+				</td>
+		<% elsif ((index % 4) == 2) %>
+				<td>
+					<%= link_to region.name, region_path(region.id) %>	
+				</td>		
+		<% elsif ((index % 4) == 3) %>	
+				<td>
+					<%= link_to region.name, region_path(region.id) %>	
+				</td>
+			</tr>										
+		<% end %>									
+	<% end %>	
+</table>

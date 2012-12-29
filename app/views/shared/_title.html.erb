@@ -1,0 +1,15 @@
+<% if (request.fullpath.include?("/regions/")) %>
+	<title>Поиск АЗС по региону <%= @region.name %></title>	
+<% elsif (request.fullpath.include?("/regions")) %>
+	<title>Поиск АЗС по реоигнам России</title>		
+<% elsif (request.fullpath.include?("/cities/")) %>
+	<title>Поиск АЗС в городе <%= @city.name %></title>		
+<% else %>
+	<title>Поиск АЗС по реоигнам России</title>		
+<% end %>	
+		
+
+
+
+
+

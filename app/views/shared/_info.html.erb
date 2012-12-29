@@ -1,0 +1,20 @@
+<table width="100%">
+	<tr>
+		<td colspan="2" align="center">
+			<%= render 'shared/map', :city => city, :stations => stations %>				
+		</td>
+	</tr>
+	<tr>
+		<td width="70%" align="center">
+			<% if !stations.empty? %>
+				<%= render 'shared/stations', :stations => stations %>
+			<% else %>
+				Нет результатов
+			<% end %>	
+			<%= paginate stations, :remote => false %>			
+		</td>
+		<td width="30%" align="center" valign="top">
+			<%= render 'shared/prices', :price => price %>				
+		</td>
+	</tr>
+</table>

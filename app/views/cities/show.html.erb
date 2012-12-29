@@ -1,3 +1,1 @@
-<% @stations.each_with_index  do |station, index| %>	
-    <%= station.name %> - <%= station.address %><br/>
-<% end %>
+<%= render 'shared/info', :city => @city, :stations => @stations, :price => @price %>

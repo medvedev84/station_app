@@ -1,0 +1,19 @@
+<% if (price != nil) %>
+	<table class="table table-striped">
+		<tr>
+		  <th>ДТ</th>
+		  <th>АИ-80</th>
+		  <th>АИ-92</th>
+		  <th>АИ-95</th>		  
+		</tr>	
+		<tr>
+			<td><%= price.price_dt %></td>
+			<td><%= price.price_80 %></td>
+			<td><%= price.price_92 %></td>
+			<td><%= price.price_95 %></td>
+		</tr>		
+	</table>	
+<% else %>
+	Нет данных
+<% end %>				
+

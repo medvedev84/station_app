@@ -1,3 +1,27 @@
-<% @cities.each_with_index  do |city, index| %>	
-    <%= link_to city.name, city_path(city.id)   %><br/>
-<% end %>
+<table width="100%" class="table">
+	<% @cities.each_with_index  do |city, index| %>
+		<% if ((index % 5) == 0) %>
+			<tr>
+				<td width="20%">
+					<%= link_to city.name, city_path(city.id)   %>
+				</td>								
+		<% elsif ((index % 5) == 1) %>
+				<td width="20%">
+					<%= link_to city.name, city_path(city.id)   %>	
+				</td>
+		<% elsif ((index % 5) == 2) %>
+				<td width="20%">
+					<%= link_to city.name, city_path(city.id)   %>
+				</td>	
+		<% elsif ((index % 5) == 3) %>
+				<td width="20%">
+					<%= link_to city.name, city_path(city.id)   %>
+				</td>					
+		<% elsif ((index % 5) == 4) %>	
+				<td width="20%">
+					<%= link_to city.name, city_path(city.id)   %>
+				</td>
+			</tr>										
+		<% end %>									
+	<% end %>	
+</table>
