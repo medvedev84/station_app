@@ -7,7 +7,6 @@ class PricesController < ApplicationController
   def parse  
 	#thread = Thread.new{run_parse_process()}		
 	run_parse_process
-	@result = "Success"
   end
 
   private
@@ -30,19 +29,19 @@ class PricesController < ApplicationController
 					  break if (region == nil) 
 					  @price.region_id = region.id  
 					when 2
-					  @price.price_dt = td.inner_html
+					  @price.price_dt = td.inner_html.encode("utf-8").gsub(Nokogiri::HTML("&nbsp;").text, " - ")
 					when 3
-					  @price.price_80 = td.inner_html
+					  @price.price_80 = td.inner_html.encode("utf-8").gsub(Nokogiri::HTML("&nbsp;").text, " - ")
 					when 4
-					  @price.price_92 = td.inner_html
+					  @price.price_92 = td.inner_html.encode("utf-8").gsub(Nokogiri::HTML("&nbsp;").text, " - ")
 					when 5
-					  @price.price_95 = td.inner_html					  
+					  @price.price_95 = td.inner_html.encode("utf-8").gsub(Nokogiri::HTML("&nbsp;").text, " - ")			  
 				end	
 			end
 			if (@price.region_id > 0) 
 				@price.save()
 			end					
-		end			
+		end	
 	end	
 	
 end
