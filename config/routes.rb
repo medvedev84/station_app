@@ -1,6 +1,11 @@
 StationApp::Application.routes.draw do
 	match 'pages/index' => 'pages#index'
 	match 'parse' => 'prices#parse'
+	match 'regions/get_stations' => 'regions#get_stations'
+	match 'regions/get_stations_all' => 'regions#get_stations_all'
+	
+	resources :regions	
+	resources :cities	
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,3 @@
+<% @regions.each_with_index  do |region, index| %>	
+    <%= link_to region.name, region_path(region.id) %> <a href="/regions/get_stations?region_id=<%= region.id %>">Получить станции</a><br/>
+<% end %>

@@ -4,7 +4,7 @@ class CreateStations < ActiveRecord::Migration
       t.string :name
       t.text :address
       t.integer :city_id
-
+	  t.integer :region_id
       t.timestamps
     end
   end
