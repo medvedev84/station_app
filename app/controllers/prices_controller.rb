@@ -1,12 +1,13 @@
 require 'nokogiri'
 require 'open-uri'
+require 'iconv'
 
 class PricesController < ApplicationController
 
   def parse  
 	#thread = Thread.new{run_parse_process()}		
 	run_parse_process
-	@result = "Parsing has been started."
+	@result = "Success"
   end
 
   private
@@ -22,8 +23,8 @@ class PricesController < ApplicationController
 			tr.css('td').each_with_index do |td, j|				
 				case j
 					when 1
-					  region = td.css('b').inner_html
-					  name = region.split(' ')[0]
+					  region = td.css('b').inner_html				  
+					  name = Iconv.conv('UTF-8//IGNORE', 'WINDOWS-1251', region.split(' ')[0])
 					  name = name + "%"
 					  region = Region.where(["name like ?", name]).first
 					  break if (region == nil) 
