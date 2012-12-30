@@ -1,1 +1,10 @@
 <%= render 'shared/info', :city => @city, :stations => @stations, :price => @price %>
+<div style="padding:20px;">
+	<% cities = City.where(["region_id = ?", @city.region.id]).all %>
+	<% for i in 0..10 %>
+		<% if (cities[i] != nil && cities[i].id != @city.id) %>
+			<% link_name = "АЗС в г." + cities[i].name %>
+			<%= link_to link_name, city_path(cities[i].id) %> &nbsp;
+		<% end %>
+	<% end  %>
+</div>

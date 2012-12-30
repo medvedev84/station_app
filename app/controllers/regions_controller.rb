@@ -2,11 +2,15 @@ class RegionsController < ApplicationController
 
   def index 
 	@regions = Region.all
+    h = Hash.new
+  	@q = Station.search(h)		
   end
   
   def show
 	@region = Region.find(params[:id])	
-	@cities = @region.cities		
+	@cities = @region.cities
+    h = Hash.new
+  	@q = Station.search(h)		
   end
   
 =begin  

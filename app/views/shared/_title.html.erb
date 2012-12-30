@@ -1,11 +1,15 @@
 <% if (request.fullpath.include?("/regions/")) %>
-	<title>Поиск АЗС по региону <%= @region.name %></title>	
+	<meta name="description" content="Заправки в регионе <%= @region.name %>, АЗС в регионе <%= @region.name %> - поиск АЗС" />
+	<title>Заправки в регионе <%= @region.name %>, АЗС в регионе <%= @region.name %> - поиск АЗС</title>	
 <% elsif (request.fullpath.include?("/regions")) %>
+	<meta name="description" content="Поиск АЗС по реоигнам России" />
 	<title>Поиск АЗС по реоигнам России</title>		
 <% elsif (request.fullpath.include?("/cities/")) %>
-	<title>Поиск АЗС в городе <%= @city.name %></title>		
+	<meta name="description" content="Заправки в г.<%= @city.name %>, АЗС в г.<%= @city.name %> - поиск АЗС" />	
+	<title>Заправки в г.<%= @city.name %>, АЗС в г.<%= @city.name %> - поиск АЗС</title>		
 <% else %>
-	<title>Поиск АЗС по реоигнам России</title>		
+	<meta name="description" content="Поиск АЗС - сервис поиска заправок в городах России" />
+	<title>Поиск АЗС - сервис поиска заправок в городах России</title>		
 <% end %>	
 		
 

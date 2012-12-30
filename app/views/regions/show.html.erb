@@ -25,3 +25,12 @@
 		<% end %>									
 	<% end %>	
 </table>
+<div style="padding:20px;">
+	<% regions = @region.neighbors %>
+	<% for i in 0..10 %>
+		<% if (regions[i] != nil && regions[i].id != @region.id) %>
+			<% link_name = "АЗС в регионе " + regions[i].name %>
+			<%= link_to link_name, region_path(regions[i].id) %> &nbsp;
+		<% end %>
+	<% end  %>
+</div>

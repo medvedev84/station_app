@@ -9,7 +9,7 @@
 	  <a class="brand" href="/">Поиск АЗС</a>
 	  <div class="nav-collapse collapse">
 		<ul class="nav">
-		
+			
 			<% if (request.fullpath.include?("/pages/index")) %>
 				 <li class="active"><a href="/pages/index">Главная</a></li>
 			<% else %>				
@@ -20,14 +20,9 @@
 				 <li class="active"><a href="/regions">Регионы</a></li>
 			<% else %>				
 				 <li><a href="/regions">Регионы</a></li>
-			<% end %>	
-			
-			<% if (request.fullpath.include?("/parse")) %>
-				 <li class="active"><a href="/parse">Получить данные</a></li>
-			<% else %>				
-				 <li><a href="/parse">Получить данные</a></li>
-			<% end %>				
+			<% end %>								
 
+		  <!--
 		  <li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 			<ul class="dropdown-menu">
@@ -40,13 +35,14 @@
 			  <li><a href="#">One more separated link</a></li>
 			</ul>
 		  </li>
+		  -->
 		</ul>
-		<% if (request.fullpath.include?("/pages/index")) %>
-			<%= search_form_for @q, :url => '/pages/index', :html => {:method => :post, :class => 'navbar-form pull-right'}  do |f| %>
-				<%= f.text_field :city_name_cont, :title => "Введите название города", :class => "span2" %>	
-				<%= f.submit "Поиск", :class => "btn"  %>
-			<% end %>	
-		<% end %>					
+		
+		<%= search_form_for @q, :url => '/pages/search', :html => {:method => :post, :class => 'navbar-form pull-right'}  do |f| %>
+			<%= f.text_field :city_name_cont, :title => "Введите название города", :class => "span2" %>	
+			<%= f.submit "Поиск", :class => "btn"  %>
+		<% end %>	
+						
 	  </div><!--/.nav-collapse -->
 	</div>
   </div>

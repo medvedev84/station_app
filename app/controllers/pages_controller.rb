@@ -1,6 +1,11 @@
 class PagesController < ApplicationController
 
-  def index  		
+  def index
+    h = Hash.new
+  	@q = Station.search(h)	
+  end
+
+  def search  		
 	# get city
 	if (params[:q] != nil && params[:q][:city_name_cont] != nil)				
 		@city = City.where(["name like ?", params[:q][:city_name_cont]]).first				
@@ -11,21 +16,7 @@ class PagesController < ApplicationController
 		@city = City.find(4400)		# set Moscow
 	end
 	
-	# get prices for city
-	@price = Price.where(["region_id = ?", @city.region.id]).first	
-	
-	# get paramters for searching
-    h = Hash.new
-	if params[:q] != nil	
-		h = params[:q] 	
-	else 
-		# set default city for searching
-		h["city_id_eq"] = @city.id
-	end		
-	
-	#n make searching
-	@q = Station.search(h)		
-	@stations = @q.result(:distinct => true).page(params[:page]).per(10)	
+	redirect_to city_path(@city)	
   end
-
+  
 end

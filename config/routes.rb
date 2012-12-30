@@ -1,5 +1,6 @@
 StationApp::Application.routes.draw do
 	match 'pages/index' => 'pages#index'
+	match 'pages/search' => 'pages#search'
 	match 'parse' => 'prices#parse'
 	match 'regions/get_stations' => 'regions#get_stations'
 	match 'regions/get_stations_all' => 'regions#get_stations_all'
